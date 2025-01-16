@@ -12,6 +12,13 @@ BOT_NAME = "scraplol"
 SPIDER_MODULES = ["scraplol.spiders"]
 NEWSPIDER_MODULE = "scraplol.spiders"
 
+ITEM_PIPELINES = {
+    'scraplol.pipelines.ScraplolPipeline': 300,
+}
+
+FEED_FORMAT = 'json'
+FEED_URI = 'champions.json'
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "scraplol (+http://www.yourdomain.com)"

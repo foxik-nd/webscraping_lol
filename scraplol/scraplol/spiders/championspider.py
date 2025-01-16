@@ -18,7 +18,7 @@ class ChampionspiderSpider(scrapy.Spider):
             'image_url': response.css(".pi-image-thumbnail::attr(src)").get(),
             'armure': response.css(f"#Armor_{name}::text").get(),
             'health': response.css(f"#Health_{name}::text").get(),
-            'health regeneration (5s)': response.css(f"#HealthRegen_{name}::text").get(),
+            'health_regeneration_5s': response.css(f"#HealthRegen_{name}::text").get(),
             'damage': response.css(f"#AttackDamage_{name}::text").get(),
         }
 
