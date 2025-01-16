@@ -11,12 +11,14 @@ class ChampionspiderSpider(scrapy.Spider):
             yield response.follow(link, self.parse_champion)
 
     def parse_champion(self, response):
+        name = response.css("h1.page-header__title::text").get().split(" (")[0].strip().replace(" ", "")
+    
         yield {
             'name': response.css("h1.page-header__title::text").get().split(" (")[0].strip(),
             'image_url': response.css(".pi-image-thumbnail::attr(src)").get(),
-            # 'position': response.css(".pi-item[data-source='position'] .pi-data-value::text").get(),
-            # 'role': response.css(".pi-item[data-source='class'] .pi-data-value::text").get(),
-            # 'damage_type': response.css(".pi-item[data-source='damage'] .pi-data-value::text").get(),
-            # 'resource': response.css(".pi-item[data-source='resource'] .pi-data-value::text").get(),
-            # 'health':response.css(".pi-smart-data-value pi-data-value pi-font pi-item-spacing pi-border-color::text").get()
+            'armure': response.css(f"#Armor_{name}::text").get(),
+            'health': response.css(f"#Health_{name}::text").get(),
+            'health regeneration (5s)': response.css(f"#HealthRegen_{name}::text").get(),
+            'damage': response.css(f"#AttackDamage_{name}::text").get(),
         }
+
