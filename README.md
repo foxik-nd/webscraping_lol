@@ -9,6 +9,10 @@ Scrapy est un framework Python spécialement conçu pour le web scraping. Il off
 
 ## Étapes pour lancer le projet
 
-1. **Lancer la commande Scrapy** :  
+1. **Lancer la commande Scrapy pour générer le Json** :  
    ```
-   scrapy crawl championspider -o champions.json
+   scrapy crawl championspider
+
+
+## Preview
+![preview](scraplol/img/preview_lol_scraping.png)
